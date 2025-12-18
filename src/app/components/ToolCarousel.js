@@ -76,8 +76,8 @@ const TechToolbox = () => {
       {/* Featured Toolbox Header */}
       <div className="text-center">
         <h2
-          className={`text-2xl md:text-lg font-semibold tracking-wide uppercase transition-colors duration-300 ${
-            isHovered ? "text-white" : "text-gray-500"
+          className={`text-2xl md:text-lg font-bold tracking-wide uppercase transition-colors duration-300 ${
+            isHovered ? "text-white" : "text-gray-400"
           }`}
         >
           FEATURED TOOLBOX
@@ -85,11 +85,11 @@ const TechToolbox = () => {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative max-w-7xl mx-auto px-4 mt-8">
+      <div className="relative max-w-7xl mx-auto px-4">
         {/* Left Arrow */}
         <button
           onClick={slidePrev}
-          className="absolute left-10 top-1/2 -translate-y-1/2 z-30 p-3 bg-gray-800/50 hover:bg-white/20 rounded-full transition-all duration-300 group"
+          className="absolute left-10 top-1/2 -translate-y-1/2 z-30 p-3 duration-300 group"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
@@ -98,7 +98,7 @@ const TechToolbox = () => {
         {/* Right Arrow */}
         <button
           onClick={slideNext}
-          className="absolute right-10 top-1/2 -translate-y-1/2 z-30 p-3 bg-gray-800/50 hover:bg-white/20 rounded-full transition-all duration-300 group"
+          className="absolute right-10 top-1/2 -translate-y-1/2 z-30 p-3 duration-300 group"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors duration-300" />
@@ -114,7 +114,7 @@ const TechToolbox = () => {
             {displayTools.map((tool, index) => (
               <div key={`${tool.name}-${index}`} className="relative">
                 {/* Tool Container */}
-                <div className="relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40">
+                <div className="relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-32">
                   {/* Gray Version (shown when not hovered) */}
                   <img
                     src={`/images/tools/${tool.name.toLowerCase().replace(/\s+/g, "-")}.png`}

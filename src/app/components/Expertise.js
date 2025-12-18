@@ -4,11 +4,11 @@ const Expertise = () => {
   return (
     <section
       id="expertise"
-      className="py-20 px-4 md:px-8 lg:px-16 bg-[#1b1b1e]"
+      className="pt-20 px-4 md:px-8 lg:px-16 bg-[#1b1b1e] "
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Main Header */}
-        <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white text-center mb-16">
+        <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white text-center mb-10">
           My Expertise
         </h2>
 
@@ -117,7 +117,7 @@ const Expertise = () => {
             </div>
 
             {/* Item 3: Flutter Development - Updated to match item 2 */}
-            <div className="relative p-8 border-r border-white">
+            <div className="relative p-8 border-r border-b border-white">
               {/* Row 1: Image and Header inline */}
               <div className="flex items-start gap-4 mb-3">
                 {/* Flutter/Phone Image */}
@@ -177,7 +177,7 @@ const Expertise = () => {
               {/* Content */}
               <div className="pl-12">
                 {/* Main quote */}
-                <h3 className="text-3xl md:text-3xl font-bold text-white my-6 leading-tight">
+                <h3 className="text-3xl md:text-3xl top-5 font-bold text-white my-6 leading-tight">
                   Sometimes the best way to solve a problem is to help others.
                 </h3>
 
@@ -189,6 +189,19 @@ const Expertise = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Overlapping Image - Positioned below the grid */}
+      <div className=" bottom-35 left-1/2 -translate-x-1/2 w-full max-w-xl pointer-events-none relative z-10">
+        <img
+          src="/images/hello-world.webp"
+          alt="Decorative background"
+          className="w-full h-auto opacity-30"
+          style={{
+            transform:
+              "translateY(40%)" /* Top 20% overlaps with grid bottom */,
+          }}
+        />
       </div>
 
       {/* Global selection styles */}
@@ -205,6 +218,12 @@ const Expertise = () => {
 
         * {
           -webkit-tap-highlight-color: rgba(255, 182, 193, 0.3);
+        }
+
+        /* Ensure the section has enough height for the image */
+        #expertise {
+          min-height: 180vh;
+          padding-bottom: 120px; /* Add space for the image below */
         }
       `}</style>
     </section>
