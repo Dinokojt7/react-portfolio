@@ -8,9 +8,11 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Expertise from "./components/Expertise";
+import Link from "next/link";
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -27,19 +29,101 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navItems = [
+    { name: "home", href: "#home", index: "01" },
+    { name: "expertise", href: "#expertise", index: "02" },
+    { name: "work", href: "#work", index: "03" },
+    { name: "experience", href: "#experience", index: "04" },
+    { name: "contact", href: "#contact", index: "05" },
+  ];
+
+  // Navigation Item Component
+  const NavItem = ({ item }) => (
+    <div
+      className="group"
+      onMouseEnter={() => setHoveredItem(item.name)}
+      onMouseLeave={() => setHoveredItem(null)}
+    >
+      <Link
+        href={item.href}
+        className="flex items-center space-x-2 font-mono transition-all duration-300"
+      >
+        {/* // comment inline */}
+        <span
+          className={`font-['Fira_Code', monospace] text-lg mt-2.5 font-semibold transition-colors duration-300 lowercase ${
+            hoveredItem === null
+              ? "text-[#13adad]"
+              : hoveredItem === item.name
+                ? "text-[#13adad]"
+                : "text-[#0e9594]"
+          }`}
+        >
+          //
+        </span>
+        {/* Column layout with index on top right */}
+        <div className="flex flex-col items-end">
+          <span
+            className={`text-xs font-['Fira_Code',monospace] font-black tracking-wider transition-colors duration-300 lowercase ${
+              hoveredItem === null
+                ? "text-[#13adad]"
+                : hoveredItem === item.name
+                  ? "text-[#13adad]"
+                  : "text-[#0e9594]"
+            }`}
+          >
+            {item.index}
+          </span>
+          <span
+            className={`text-lg font-black font-['Fira_Code',monospace] tracking-tighter transition-colors duration-300 lowercase ${
+              hoveredItem === null
+                ? "text-[#13adad]"
+                : hoveredItem === item.name
+                  ? "text-[#13adad]"
+                  : "text-[#0e9594]"
+            }`}
+          >
+            {item.name}
+          </span>
+        </div>
+      </Link>
+    </div>
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative "
+      className="relative"
     >
-      <div className=" py-4 bg-[radial-gradient(circle_at_center,#35393c,#1a1f37,#0b132b)]">
+      <div className="pb-4 bg-[radial-gradient(circle_at_center,#35393c,#1a1f37,#0b132b)]">
         {/* Initial Navigation (Top Left) */}
         <Navigation isScrolled={false} />
 
         {/* Scroll-triggered Navigation (Centered) */}
-        <AnimatePresence>{showNav && <ScrolledNavigation />}</AnimatePresence>
+        <AnimatePresence>
+          {showNav && (
+            <motion.nav
+              key="scrolled-nav"
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a1a]/60 backdrop-blur-lg"
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className="max-w-7xl mx-auto px-10 pt-2 pb-4">
+                <div className="flex justify-center items-center">
+                  <div className="flex items-center space-x-12 font-mono">
+                    {navItems.map((item) => (
+                      <NavItem key={item.name} item={item} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
 
         {/* Hero Section with ref */}
         <div ref={heroRef}>
@@ -53,48 +137,3 @@ export default function Home() {
     </motion.div>
   );
 }
-
-// Scrolled Navigation Component
-const ScrolledNavigation = () => {
-  const navItems = [
-    { name: "home", href: "#home", index: "01" },
-    { name: "expertise", href: "#expertise", index: "02" },
-    { name: "work", href: "#work", index: "03" },
-    { name: "experience", href: "#experience", index: "04" },
-    { name: "contact", href: "#contact", index: "05" },
-  ];
-
-  return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -100, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a1a]/60 backdrop-blur-lg border-b border-[#38a3a5]/20 shadow-xl"
-    >
-      <div className="max-w-7xl mx-auto px-12 py-4">
-        <div className="flex justify-center items-center">
-          <div className="flex items-center space-x-12 font-mono">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="group flex items-center space-x-3 text-[#38a3a5] hover:text-white transition-colors duration-300"
-              >
-                <span className="text-[#8b5cf6]/70 font-light">//</span>
-                <div className="flex flex-col items-start">
-                  <span className="text-xs text-gray-400 font-light tracking-wider">
-                    {item.index}
-                  </span>
-                  <span className="text-sm font-medium uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300">
-                    {item.name}
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.nav>
-  );
-};
