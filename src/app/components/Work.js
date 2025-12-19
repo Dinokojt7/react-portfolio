@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 export default function Work() {
+  const projectSlug = "izinto-cross-platform-ecommerce-app";
   return (
     <section id="work" className="px-4 md:px-8 lg:px-16 relative">
       {/* Background covering entire section */}
@@ -50,9 +53,11 @@ export default function Work() {
               </div>
             </div>
             {/* CTA Button - aligned right */}
-            <button className="max-w-xs text-sm font-['Fira_Code',monospace] px-2 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow rounded w-full mt-3  border-0 cursor-pointer transition-colors duration-300 ml-auto -mr-2">
-              View Project
-            </button>
+            <Link href={`/project/${projectSlug}`} className="block">
+              <button className="max-w-2xl text-sm font-['Fira_Code',monospace] px-2 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow rounded w-ful mt-3 border-0 cursor-pointer transition-colors duration-300 ml-auto -mr-2">
+                View Project
+              </button>
+            </Link>
           </div>
 
           {/* Right column - 40% width - Much larger phone */}

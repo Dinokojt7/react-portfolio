@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "izinto-cross-platform-ecommerce-app",
+    "title": "Izinto Cross Platform Ecommerce App",
+    "description": "This project enables Izinto to reach tens of thousands of cross-platform mobile users across South Africa to book home-care and errand service providers. The Izinto Mobile App provides users with real-time communication with local professional home-care services and is one of the top home services platforms in South Africa.",
+    "strategy": "MVVM architecture, Provider parttern",
+    "techStack": ["Flutter"],
+    "client": "Izinto Technologies",
+    "liveUrl": "https://izinto.africa",
+    "githubUrl": "https://github.com/yourusername/izinto-app",
+    "images": ["/images/izinto-media.png"],
+    "features": []
+  },
+  {
+    "slug": "brandclique-dashboard-app",
+    "title": "BrandClique Dashboard App",
+    "description": "This project enables Izinto to reach tens of thousands of cross-platform mobile users across South Africa to book home-care and errand service providers. The Izinto Mobile App provides users with real-time communication with local professional home-care services and is one of the top home services platforms in South Africa.",
+    "strategy": "",
+    "techStack": ["Flutter"],
+    "client": "Izinto Technologies",
+    "liveUrl": "https://izinto.africa",
+    "githubUrl": "https://github.com/yourusername/izinto-app",
+    "images": ["/images/brandclique-media1.jpg"],
+    "features": []
+  }
+]

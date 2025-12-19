@@ -105,7 +105,7 @@ export default function Home() {
           }}
         >
           {/* Gradient overlay at bottom of hero section for blending */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#1b1b1e] to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-[#1b1b1e] to-transparent"></div>
 
           {/* Navigation and Hero content */}
           <div className="relative z-40">
@@ -144,8 +144,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Rest of the sections with solid #1b1b1e background */}
       <Expertise />
       <Work />
       <Experience />

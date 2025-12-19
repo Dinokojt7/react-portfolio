@@ -4,18 +4,32 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Code2 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // Add this import
 
 const Navigation = ({ isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const pathname = usePathname(); // Get current path
 
-  const navItems = [
-    { name: "home", href: "#home", index: "01" },
-    { name: "expertise", href: "#expertise", index: "02" },
-    { name: "work", href: "#work", index: "03" },
-    { name: "experience", href: "#experience", index: "04" },
-    { name: "contact", href: "#contact", index: "05" },
-  ];
+  // Check if we're on home page or project page
+  const isHomePage = pathname === "/";
+
+  // Links change based on page
+  const navItems = isHomePage
+    ? [
+        { name: "home", href: "#home", index: "01" },
+        { name: "expertise", href: "#expertise", index: "02" },
+        { name: "work", href: "#work", index: "03" },
+        { name: "experience", href: "#experience", index: "04" },
+        { name: "contact", href: "#contact", index: "05" },
+      ]
+    : [
+        { name: "home", href: "/#home", index: "01" },
+        { name: "expertise", href: "/#expertise", index: "02" },
+        { name: "work", href: "/#work", index: "03" },
+        { name: "experience", href: "/#experience", index: "04" },
+        { name: "contact", href: "/#contact", index: "05" },
+      ];
 
   // Close mobile menu on resize
   useEffect(() => {
@@ -38,8 +52,8 @@ const Navigation = ({ isScrolled = false }) => {
       <Link
         href={item.href}
         className="flex items-center space-x-2 font-mono transition-all duration-300"
+        onClick={() => isOpen && setIsOpen(false)}
       >
-        {/* // comment inline */}
         <span
           className={`font-['Fira_Code', monospace] text-lg mt-2.5 font-semibold transition-colors duration-300 lowercase ${
             hoveredItem === null
@@ -51,7 +65,6 @@ const Navigation = ({ isScrolled = false }) => {
         >
           //
         </span>
-        {/* Column layout with index on top right */}
         <div className="flex flex-col items-end">
           <span
             className={`text-xs font-['Fira_Code',monospace] font-black tracking-wider transition-colors duration-300 lowercase ${
@@ -87,19 +100,20 @@ const Navigation = ({ isScrolled = false }) => {
     >
       <div className="mx-12 mb-4">
         <div className="flex items-start justify-between">
-          {/* Logo/Name Section */}
+          {/* Logo/Name Section with link to home */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="flex items-center space-x-8"
           >
-            {/* Name with dot and underscore */}
-            <div className="flex items-baseline space-x-1">
-              <motion.span className="font-['Fira_Code',monospace] text-3xl font-black text-[#0e9594] hover:text-[#127475] transition-colors duration-300 cursor-pointer">
+            <Link
+              href="/"
+              className="flex items-baseline space-x-1 hover:opacity-90 transition-opacity"
+            >
+              <motion.span className="font-['Fira_Code',monospace] text-3xl font-black text-[#0e9594] transition-colors duration-300 cursor-pointer">
                 TiisetsoDinoko
               </motion.span>
-
               <div className="flex items-end space-x-1">
                 <motion.span className="text-4xl text-white font-mono">
                   .
@@ -108,9 +122,9 @@ const Navigation = ({ isScrolled = false }) => {
                   _
                 </motion.span>
               </div>
-            </div>
+            </Link>
 
-            {/* Desktop Navigation Items - Inline with logo */}
+            {/* Desktop Navigation Items */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <NavItemDesktop key={item.name} item={item} />
