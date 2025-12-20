@@ -1,19 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import projects from "@/data/projects.json";
 
 export default function Work() {
-  const projectSlug = "izinto-cross-platform-ecommerce-app";
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  // Get projects starting from index 1 (skip the first one)
+  const projectList = projects.slice(1);
+  // Get the third project (index 3 from original array)
+  const thirdProject = projects[3];
+
   return (
     <section id="work" className="px-4 md:px-8 lg:px-16 relative">
       {/* Background covering entire section */}
       <div className="absolute inset-0 bg-[#1b1b1e] -z-10"></div>
 
       <div className="max-w-6xl mx-auto">
-        {/* Three column layout with 40%/20%/40% widths */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left column - 40% width */}
           <div className="lg:w-2/5">
-            {" "}
-            {/* 40% */}
             {/* Header */}
             <div className="mb-8">
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white text-left">
@@ -53,7 +60,7 @@ export default function Work() {
               </div>
             </div>
             {/* CTA Button - aligned right */}
-            <Link href={`/project/${projectSlug}`} className="block">
+            <Link href={`/project/${projects[0]?.slug}`} className="block">
               <button className="max-w-2xl text-sm font-['Fira_Code',monospace] px-2 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow rounded w-ful mt-3 border-0 cursor-pointer transition-colors duration-300 ml-auto -mr-2">
                 View Project
               </button>
@@ -62,7 +69,7 @@ export default function Work() {
 
           {/* Right column - 40% width - Much larger phone */}
           <div className="lg:w-2/5 flex items-start justify-start h-full">
-            <div className="relative w-full h-full min-h-150 max-h-200">
+            <div className="relative w-full h-full min-h-100 max-h-125">
               <div className="relative w-full h-full flex items-center justify-start px-8 pb-8">
                 {/* Phone image with CSS animation */}
                 <img
@@ -78,9 +85,137 @@ export default function Work() {
             </div>
           </div>
         </div>
+        {/* Two column grid of project images in rounded containers */}
+        <div className="mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projectList.slice(0, 2).map((project, index) => (
+              <Link
+                key={project.id}
+                href={`/project/${project.slug}`}
+                className="group"
+                onMouseEnter={() => setHoveredProject(index)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                {/* Combined rounded container with background */}
+                <div className="bg-[#2a2a2e5d] rounded-lg overflow-hidden transition-all duration-300 group-hover:bg-[#2a2a2e5d]">
+                  {/* Image container */}
+                  <div className="overflow-hidden">
+                    <img
+                      src={`/images/portfolio-image${index + 1}.jpg`}
+                      alt={project.title}
+                      className={`w-full h-64 md:h-80 object-cover transition-all duration-500 ${
+                        hoveredProject === index ? "scale-110" : "scale-100"
+                      }`}
+                    />
+                  </div>
+
+                  {/* Text container with padding */}
+                  <div className="p-6">
+                    {/* Title */}
+                    <h4 className="text-xl font-bold text-white mb-2">
+                      {project.title}
+                    </h4>
+
+                    {/* Strategy / Show Project - Animated on hover */}
+                    <div className="relative h-6 overflow-hidden">
+                      {/* Strategy Text (default) */}
+                      <div
+                        className={`transition-transform duration-300 ${
+                          hoveredProject === index
+                            ? "-translate-y-full opacity-0"
+                            : "translate-y-0 opacity-100"
+                        }`}
+                      >
+                        <p className="text-gray-300 text-sm">
+                          {project.strategy || "Full-stack development"}
+                        </p>
+                      </div>
+
+                      {/* Show Project Text (on hover) */}
+                      <div
+                        className={`absolute top-0 left-0 w-full transition-transform duration-300 ${
+                          hoveredProject === index
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-full opacity-0"
+                        }`}
+                      >
+                        <p className="text-purple-400 font-semibold text-sm">
+                          Show Project ―
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Full width third project in rounded container */}
+        {thirdProject && (
+          <div className="mt-8">
+            <Link
+              href={`/project/${thirdProject.slug}`}
+              className="group block"
+              onMouseEnter={() => setHoveredProject(3)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              {/* Full width rounded container with background */}
+              <div className="bg-[#2a2a2e5d] rounded-lg overflow-hidden transition-all duration-300 group-hover:bg-[#2a2a2e5d]">
+                {/* Full width image */}
+                <div className="overflow-hidden">
+                  <img
+                    src={`/images/portfolio-image3.jpg`}
+                    alt={thirdProject.title}
+                    className={`w-full h-80 md:h-96 object-cover transition-all duration-500 ${
+                      hoveredProject === 3 ? "scale-105" : "scale-100"
+                    }`}
+                  />
+                </div>
+
+                {/* Text container with padding */}
+                <div className="p-6">
+                  {/* Title */}
+                  <h4 className="text-2xl font-bold text-white mb-2">
+                    {thirdProject.title}
+                  </h4>
+
+                  {/* Strategy / Show Project - Animated on hover */}
+                  <div className="relative h-6 overflow-hidden">
+                    {/* Strategy Text (default) */}
+                    <div
+                      className={`transition-transform duration-300 ${
+                        hoveredProject === 3
+                          ? "-translate-y-full opacity-0"
+                          : "translate-y-0 opacity-100"
+                      }`}
+                    >
+                      <p className="text-gray-300">
+                        {thirdProject.strategy || "Full-stack development"}
+                      </p>
+                    </div>
+
+                    {/* Show Project Text (on hover) */}
+                    <div
+                      className={`absolute top-0 left-0 transition-transform duration-300 ${
+                        hoveredProject === 3
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-full opacity-0"
+                      }`}
+                    >
+                      <p className="text-purple-400 font-semibold">
+                        Show Project ―
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
 
-      {/* Add CSS animation styles */}
+      {/* Keep the CSS animation styles */}
       <style jsx>{`
         @keyframes slowRock {
           0%,

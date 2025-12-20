@@ -13,7 +13,7 @@ export default function Contact() {
     { icon: Mail, href: "mailto:jacobdinoko@gmail.com", label: "Email" },
   ];
   return (
-    <section id="contact" className="py-20 px-4 md:px-8 lg:px-16">
+    <section id="contact" className="py-20 px-4 md:px-8 lg:px-16 bg-[#1b1b1e]">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
           Available for select freelance opportunities
