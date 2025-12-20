@@ -1,56 +1,83 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
-
 export default function Contact() {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/Dinokojt7", label: "GitHub" },
-    {
-      icon: Linkedin,
-      href: "linkedin.com/in/tiisetso-dinoko-6bb84280/",
-      label: "LinkedIn",
-    },
-    { icon: Twitter, href: "https://x.com/tiisetso_dinoko", label: "Twitter" },
-    { icon: Mail, href: "mailto:jacobdinoko@gmail.com", label: "Email" },
-  ];
   return (
-    <section id="contact" className="py-20 px-4 md:px-8 lg:px-16 bg-[#1b1b1e]">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          Available for select freelance opportunities
+    <section
+      id="contact"
+      className="py-12 sm:py-20 px-4 md:px-8 lg:px-16 bg-linear-to-b from-[#1b1b1e] via-[#1b1b1e] via-25% to-black"
+    >
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Main Header - smaller on mobile */}
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white text-center mb-6 sm:mb-12">
+          <div>Avalaible for select freelance</div>
+          <div className="relative">opportunities</div>
         </h2>
-        <p className="text-gray-600 mb-8">
-          I'm currently open to new opportunities and collaborations. Whether
-          you have a question, a project idea, or just want to say hello, feel
-          free to reach out!
-        </p>{" "}
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="flex items-center gap-4"
-        >
-          <span className="text-gray-500">Follow me:</span>
-          <div className="flex gap-3">
-            {socialLinks.map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 bg-white shadow-sm hover:shadow-md rounded-lg transition-all hover:bg-primary hover:text-white"
-              >
-                <social.icon size={20} />
-              </motion.a>
-            ))}
+
+        {/* Same two-line text - smaller on mobile */}
+        <p className="text-white text-base sm:text-xl font-bold mb-8 sm:mb-12 font-['Fira_Code',monospace] px-2">
+          Have an exciting project you need help with?
+          <br />
+          Send me an email or contact me via social media dm!
+        </p>
+
+        {/* Contact links container */}
+        <div className="space-y-6 sm:space-y-8">
+          {/* Email with bottom-to-top animated background - responsive */}
+          <div className="relative inline-block">
+            <a
+              href="mailto:jacobdinoko@gmail.com"
+              className="group relative z-10 inline-block"
+            >
+              <div className="relative overflow-hidden">
+                {/* Animated background - adjusted for mobile */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-4 sm:left-8 sm:right-8 bg-purple-600 h-1/6 group-hover:h-1/2 transition-all duration-300 ease-out -z-10"></div>
+                {/* Email text - smaller on mobile */}
+                <span className="text-xl sm:text-3xl font-bold text-white font-['Fira_Code',monospace] px-4 sm:px-8 py-3 sm:py-4 inline-block">
+                  jacobdinoko@gmail.com
+                </span>
+              </div>
+            </a>
           </div>
-        </motion.div>
+
+          {/* Social links - smaller on mobile */}
+          <div className="space-y-3 sm:space-y-4">
+            <a
+              href="https://www.linkedin.com/in/tiisetso-dinoko-6bb84280/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <span className="text-lg sm:text-2xl font-bold text-gray-300 font-['Fira_Code',monospace] group-hover:text-[#0e9594] transition-colors duration-300">
+                LinkedIn
+              </span>
+              <span className="sr-only">
+                https://www.linkedin.com/in/tiisetso-dinoko-6bb84280/
+              </span>
+            </a>
+
+            <a
+              href="https://x.com/tiisetso_dinoko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <span className="text-lg sm:text-2xl font-bold text-gray-300 font-['Fira_Code',monospace] group-hover:text-[#0e9594] transition-colors duration-300">
+                Twitter
+              </span>
+              <span className="sr-only">https://x.com/tiisetso_dinoko</span>
+            </a>
+
+            <a
+              href="https://github.com/Dinokojt7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <span className="text-lg sm:text-2xl font-bold text-gray-300 font-['Fira_Code',monospace] group-hover:text-[#0e9594] transition-colors duration-300">
+                Github
+              </span>
+              <span className="sr-only">https://github.com/Dinokojt7</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

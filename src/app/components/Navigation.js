@@ -132,16 +132,18 @@ const Navigation = ({ isScrolled = false }) => {
             </div>
           </motion.div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X size={24} className="text-gray-300" />
+              <X size={28} className="text-white" />
             ) : (
-              <Menu size={24} className="text-gray-300" />
+              <div className="space-y-1.5">
+                <div className="w-6 h-0.5 bg-white"></div>
+                <div className="w-6 h-0.5 bg-white"></div>
+              </div>
             )}
           </button>
         </div>

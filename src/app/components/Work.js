@@ -10,7 +10,7 @@ export default function Work() {
   // Get projects starting from index 1 (skip the first one)
   const projectList = projects.slice(1);
   // Get the third project (index 3 from original array)
-  const thirdProject = projects[3];
+  const thirdProject = projects[0];
 
   return (
     <section id="work" className="px-4 md:px-8 lg:px-16 relative">
@@ -116,9 +116,9 @@ export default function Work() {
                       {project.title}
                     </h4>
 
-                    {/* Strategy / Show Project - Animated on hover */}
+                    {/* Type / Show Project - Animated on hover */}
                     <div className="relative h-6 overflow-hidden">
-                      {/* Strategy Text (default) */}
+                      {/* Type Text (default) */}
                       <div
                         className={`transition-transform duration-300 ${
                           hoveredProject === index
@@ -127,7 +127,7 @@ export default function Work() {
                         }`}
                       >
                         <p className="text-gray-300 text-sm">
-                          {project.strategy || "Full-stack development"}
+                          {project.type || "Full-stack development"}
                         </p>
                       </div>
 
@@ -180,9 +180,9 @@ export default function Work() {
                     {thirdProject.title}
                   </h4>
 
-                  {/* Strategy / Show Project - Animated on hover */}
+                  {/* Type / Show Project - Animated on hover */}
                   <div className="relative h-6 overflow-hidden">
-                    {/* Strategy Text (default) */}
+                    {/* Type Text (default) */}
                     <div
                       className={`transition-transform duration-300 ${
                         hoveredProject === 3
@@ -191,7 +191,7 @@ export default function Work() {
                       }`}
                     >
                       <p className="text-gray-300">
-                        {thirdProject.strategy || "Full-stack development"}
+                        {thirdProject.type || "Full-stack development"}
                       </p>
                     </div>
 

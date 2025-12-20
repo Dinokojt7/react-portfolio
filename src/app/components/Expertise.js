@@ -49,7 +49,7 @@ const Expertise = () => {
               {/* Row 3: Vertical line and Body text */}
               <div className="flex items-start gap-4 mb-1">
                 {/* Vertical line */}
-                <div className="w-0.5 h-20 ml-4 bg-[#6e6e6e]"></div>
+                <div className="w-0.8 h-20 ml-4 bg-[#6e6e6e]"></div>
 
                 {/* Body Text */}
                 <div className="flex-1">
@@ -99,7 +99,7 @@ const Expertise = () => {
               {/* Row 3: Vertical line and Body text */}
               <div className="flex items-start gap-4 mb-1">
                 {/* Vertical line */}
-                <div className="w-0.5 h-20 ml-4 bg-[#6e6e6e]"></div>
+                <div className="w-0.8 h-20 ml-4 bg-[#6e6e6e]"></div>
 
                 {/* Body Text */}
                 <div className="flex-1">
@@ -152,7 +152,7 @@ const Expertise = () => {
               {/* Row 3: Vertical line and Body text */}
               <div className="flex items-start gap-4 mb-1">
                 {/* Vertical line */}
-                <div className="w-0.5 h-20 ml-4 bg-[#6e6e6e]"></div>
+                <div className="w-0.8 h-20 ml-4 bg-[#6e6e6e]"></div>
 
                 {/* Body Text */}
                 <div className="flex-1">
@@ -169,7 +169,7 @@ const Expertise = () => {
               </div>
             </div>
 
-            {/* Item 4: Quote - No borders at all (UNCHANGED) */}
+            {/* Item 4: Quote - No borders at all */}
             <div className="relative p-3">
               {/* Purple line full height of box */}
               <div className="absolute top-10 left-8 bottom-4 w-2 bg-linear-to-b from-purple-500 via-purple-600 to-purple-700"></div>
@@ -207,17 +207,17 @@ const Expertise = () => {
       {/* Global selection styles */}
       <style jsx global>{`
         ::selection {
-          background-color: rgba(255, 182, 193, 0.3);
+          background-color: rgba(255, 182, 193, 0.8);
           color: white;
         }
 
         ::-moz-selection {
-          background-color: rgba(255, 182, 193, 0.3);
+          background-color: rgba(255, 182, 193, 0.8);
           color: white;
         }
 
         * {
-          -webkit-tap-highlight-color: rgba(255, 182, 193, 0.3);
+          -webkit-tap-highlight-color: rgba(255, 182, 193, 0.8);
         }
 
         /* Ensure the section has enough height for the image */
