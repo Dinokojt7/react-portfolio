@@ -9,10 +9,12 @@ import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Expertise from "./components/Expertise";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -85,6 +87,17 @@ export default function Home() {
     </div>
   );
 
+  // Close mobile menu when resizing to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -121,17 +134,91 @@ export default function Home() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -100, opacity: 0 }}
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="fixed top-0 left-0 right-0 z-50 bg-[#1b1b1e]/60 backdrop-blur-lg"
+                  className="fixed top-0 left-0 right-0 z-50 bg-[#1b1b1e]/50 backdrop-blur-lg "
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  <div className="max-w-7xl mx-auto px-10 pt-2 pb-4">
-                    <div className="flex justify-center items-center">
-                      <div className="flex items-center space-x-12 font-mono">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-2 pb-4">
+                    {/* Mobile menu button on left */}
+                    <div className="md:hidden flex items-center justify-between">
+                      <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                        aria-label="Toggle menu"
+                      >
+                        {isMobileMenuOpen ? (
+                          <X size={28} className="text-[#13adad]" />
+                        ) : (
+                          <div className="space-y-1.5">
+                            <div className="w-6 h-0.5 bg-[#13adad]"></div>
+                            <div className="w-6 h-0.5 bg-[#13adad]"></div>
+                            <div className="w-4 h-0.5 bg-[#13adad]"></div>
+                          </div>
+                        )}
+                      </button>
+
+                      {/* Logo/Name in center on mobile */}
+                      <Link
+                        href="/"
+                        className="flex items-center space-x-1 hover:opacity-90 transition-opacity"
+                      >
+                        <span className="font-['Fira_Code',monospace] text-xl font-black text-[#0e9594]">
+                          TiisetsoDinoko
+                        </span>
+                        <span className="text-2xl text-white font-mono">.</span>
+                      </Link>
+
+                      {/* Spacer for balance */}
+                      <div className="w-10"></div>
+                    </div>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex justify-center items-center">
+                      <div className="flex items-center space-x-8 lg:space-x-12 font-mono">
                         {navItems.map((item) => (
                           <NavItem key={item.name} item={item} />
                         ))}
                       </div>
                     </div>
+
+                    {/* Mobile Menu Dropdown */}
+                    <AnimatePresence>
+                      {isMobileMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          className="md:hidden mt-4 bg-[#0a0a1a]/95 backdrop-blur-lg rounded-lg border border-[#38a3a5]/20 shadow-2xl"
+                        >
+                          <div className="py-4 px-3 space-y-2">
+                            {navItems.map((item) => (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                className="flex items-center justify-between p-3 hover:bg-[#38a3a5]/10 rounded-lg transition-colors group"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <div className="flex items-center space-x-3">
+                                  <span className="text-lg font-['Fira_Code'] text-[#13adad]">
+                                    //
+                                  </span>
+                                  <div className="flex flex-col items-end font-mono">
+                                    <span className="text-xs text-gray-400">
+                                      {item.index}
+                                    </span>
+                                    <span className="text-gray-200 lowercase tracking-wider mt-1">
+                                      {item.name}
+                                    </span>
+                                  </div>
+                                </div>
+                                <span className="text-[#38a3a5] font-mono text-sm">
+                                  →
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </motion.nav>
               )}
