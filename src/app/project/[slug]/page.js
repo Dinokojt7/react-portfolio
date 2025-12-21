@@ -216,7 +216,7 @@ export default function ProjectPage() {
           </div>
         </main>
 
-        {/* Desktop: Next Project Navigation Container - MONO FONT ONLY HERE */}
+        {/* Desktop: Next Project Navigation Container */}
         <div className="hidden lg:block fixed bottom-8 right-4 w-60 h-36 bg-white rounded-lg shadow-2xl z-40 p-3">
           <div className="flex flex-col h-full">
             {/* First row: Next Project with arrows */}
@@ -242,11 +242,11 @@ export default function ProjectPage() {
               </div>
             </div>
 
-            {/* Second row: Next project name - MONO FONT */}
+            {/* Second row: Next project name */}
             <div className="flex-1">
               <Link
                 href={`/project/${nextProjectData?.slug}`}
-                className="block h-full hover:opacity-80 transition-opacity"
+                className="block h-full "
               >
                 <h3 className="text-xl font-semibold text-black font-['Fira_Code',monospace] leading-tight">
                   {nextProjectData?.title || "No more projects"}
@@ -266,7 +266,6 @@ export default function ProjectPage() {
           </button>
         )}
       </div>
-      // Add to your layout component
       <style jsx global>{`
         ::selection {
           background-color: rgba(255, 200, 210, 0.4);

@@ -144,12 +144,11 @@ export default function Work() {
                 onMouseEnter={() => setHoveredProject(index)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Combined rounded container with background */}
                 <div className="bg-[#2a2a2e5d] rounded-lg overflow-hidden transition-all duration-300 group-hover:bg-[#2a2a2e5d] group-hover:shadow-xl group-hover:shadow-purple-900/20">
                   {/* Image container */}
                   <div className="overflow-hidden">
                     <img
-                      src={`/images/portfolio-image${index + 1}.jpg`}
+                      src={`${project.images[0]}`}
                       alt={project.title}
                       className={`w-full h-48 sm:h-64 md:h-80 object-cover transition-all duration-500 ${
                         hoveredProject === index ? "scale-110" : "scale-100"
@@ -213,9 +212,9 @@ export default function Work() {
                 {/* Full width image */}
                 <div className="overflow-hidden">
                   <img
-                    src={`/images/portfolio-image3.jpg`}
+                    src={`${thirdProject.images[0]}`}
                     alt={thirdProject.title}
-                    className={`w-full h-64 sm:h-80 md:h-96 object-cover transition-all duration-500 ${
+                    className={`w-full h-64 sm:h-80 md:h-142  object-cover transition-all duration-500 ${
                       hoveredProject === 3 ? "scale-105" : "scale-100"
                     }`}
                   />

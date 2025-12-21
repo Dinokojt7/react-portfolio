@@ -8,8 +8,9 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Expertise from "./components/Expertise";
+import Testimonials from "./components/Testimonials"; // Import the new component
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
@@ -134,10 +135,10 @@ export default function Home() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -100, opacity: 0 }}
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="fixed top-0 left-0 right-0 z-50 bg-[#1b1b1e]/50 backdrop-blur-lg "
+                  className="fixed top-0 left-0 right-0 z-50 bg-[#1b1b1e]/80 backdrop-blur-lg "
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-2 pb-4">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-1 pb-2">
                     {/* Mobile menu button on left */}
                     <div className="md:hidden flex items-center justify-between">
                       <button
@@ -234,6 +235,10 @@ export default function Home() {
       <Expertise />
       <Work />
       <Experience />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
       <Footer />
     </motion.div>
   );

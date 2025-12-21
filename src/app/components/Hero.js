@@ -50,7 +50,7 @@ const Hero = () => {
             <motion.div
               animate={{ x: [0, 2, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="relative mt-16 w-24 h-24 md:w-12 md:h-12"
+              className="relative mt-16 w-12 h-12 md:w-12 md:h-12"
             >
               {/* Sun Core */}
               <div className="absolute inset-0 bg-linear-to-br from-white/60 to-orange-500 rounded-full shadow-xl shadow-yellow-200/50"></div>
@@ -69,26 +69,39 @@ const Hero = () => {
           </motion.div>
 
           {/* Text Content */}
-          <div className="relative z-10 mt-18">
+          <div className="relative z-10 md:mt-18">
             {/* Main Name */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none"
+              className="text-7xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none"
             >
               <span className="text-white">TIISETSO DINOKO</span>
             </motion.h1>
 
-            {/* Title */}
+            {/* Desktop Title - Hidden on mobile */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="font-['Fira_Code',monospace] text-xl md:text-xl lg:text-2xl tracking-wider text-white uppercase leading-1.5 mt-8"
+              className="hidden md:block font-['Fira_Code',monospace] text-xl md:text-xl lg:text-2xl tracking-wider text-white uppercase leading-1.5 mt-8"
             >
               Software Engineer, Front End & Mobile Developer
             </motion.p>
+
+            {/* Mobile Title - Only shows on mobile with two lines */}
+            <div className="md:hidden mt-8">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                className="font-['Fira_Code',monospace] text-lg tracking-wider text-white uppercase"
+              >
+                <span className="block">Software Engineer,</span>
+                <span className="block">Front End & Mobile Developer</span>
+              </motion.p>
+            </div>
           </div>
 
           <TechCarousel />

@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-12 sm:py-20 px-4 md:px-8 lg:px-16 bg-linear-to-b from-[#1b1b1e] via-[#1b1b1e] via-25% to-black"
+      className="py-12 sm:py-20 px-4 md:px-8 lg:px-16 bg-black/90"
     >
       <div className="max-w-4xl mx-auto text-center">
         {/* Main Header - smaller on mobile */}
