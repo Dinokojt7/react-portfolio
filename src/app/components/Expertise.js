@@ -65,13 +65,16 @@ const Expertise = () => {
                 {/* Header Text */}
                 <div className="flex-1">
                   <div className="text-xl sm:text-2xl font-semibold text-white">
-                    <div>Software</div>
-                    <div className="relative">
-                      Development
+                    <div className="relative overflow-hidden">
+                      {/* Animated background  */}
                       <div
-                        className={`absolute left-0 -top-2/5 w-2/6 h-2 bg-pink-600/70 transition-all duration-1000 delay-500 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
+                        className={`absolute top-5 -left-4 right-4 sm:bottom-4 sm-bottom-10 sm:w-2/7 md:w-3/7 sm:right-2 w-2/6 bg-pink-600/90 h-1/4  ease-out -z-10 transition-all duration-1000 delay-600 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
                       ></div>
+                      {/* Email text - smaller on mobile */}
+                      <span className="inline-block">Software</span>
                     </div>
+
+                    <div className="relative">Development</div>
                   </div>
                 </div>
               </div>
@@ -119,13 +122,16 @@ const Expertise = () => {
                 {/* Header Text */}
                 <div className="flex-1">
                   <div className="text-xl sm:text-2xl font-semibold text-white">
-                    <div>Frontend Dev</div>
-                    <div className="relative">
-                      React, NextJS
+                    {" "}
+                    <div className="relative overflow-hidden">
+                      {/* Animated background  */}
                       <div
-                        className={`absolute left-0 -top-2/5 w-2/6 h-2 bg-linear-to-r from-blue-600/70 to-blue-700/70 transition-all duration-1000 delay-600 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
+                        className={`absolute top-5 -left-4 right-4 sm:bottom-4 sm-bottom-10 sm:w-4/6 md:w-4/7 sm:right-2 w-3/7 bg-blue-600/90 h-1/4  ease-out -z-10 transition-all duration-1000 delay-600 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
                       ></div>
+                      {/* Email text - smaller on mobile */}
+                      <span className="inline-block">Frontend Dev</span>
                     </div>
+                    <div className="relative">React, NextJS</div>
                   </div>
                 </div>
               </div>
@@ -172,16 +178,20 @@ const Expertise = () => {
 
                 {/* Header Text */}
                 <div className="flex-1">
-                  <div className="text-xl sm:text-2xl font-semibold z-10 text-white">
-                    <div>Flutter Dev</div>
+                  <div className="text-xl sm:text-2xl font-semibold text-white">
+                    {" "}
+                    <div className="relative overflow-hidden">
+                      <div
+                        className={`absolute top-5 -left-4 right-6 sm:bottom-4 sm-bottom-10 sm:w-3/6 md:w-3/6 sm:right-2 w-3/8 bg-orange-600/90 h-1/4  ease-out -z-10 transition-all duration-1000 delay-600 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
+                      ></div>
+                      {/* Email text - smaller on mobile */}
+                      <span className="inline-block">Flutter Dev</span>
+                    </div>
                     <div className="relative">
                       <div className="text-lg sm:text-xl font-bold text-white mt-1">
                         Android, iOS
                       </div>
                       {/* Orange underline */}
-                      <div
-                        className={`absolute left-0 -top-3/5 w-3/7 z-0 h-2 bg-linear-to-r from-orange-500/80 to-orange-600/80 transition-all duration-1000 delay-700 ${isVisible ? "scale-x-100" : "scale-x-0"}`}
-                      ></div>
                     </div>
                   </div>
                 </div>
@@ -218,11 +228,11 @@ const Expertise = () => {
             >
               {/* Purple line full height of box */}
               <div
-                className={`absolute top-4 sm:top-8 md:top-10 left-4 sm:left-6 md:left-8 bottom-4 w-1 sm:w-1.5 md:w-2 bg-linear-to-b from-purple-500 via-purple-600 to-purple-700 transition-all duration-1000 delay-800 ${isVisible ? "scale-y-100" : "scale-y-0"}`}
+                className={`absolute top-8 bottom-10 sm:top-12 md:top-14 md:bottom-10 left-4 sm:left-10 md:left-8 w-1 sm:w-1.5 md:w-1.5 bg-linear-to-b from-purple-500 via-purple-600 to-purple-700 transition-all duration-1000 delay-800 ${isVisible ? "scale-y-100" : "scale-y-0"}`}
               ></div>
 
               {/* Content */}
-              <div className="pl-8 sm:pl-10 md:pl-6">
+              <div className="pl-8 sm:pl-4 md:pl-6">
                 {/* Main quote */}
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white my-4 sm:my-5 md:my-6 leading-snug sm:leading-tight">
                   Sometimes the best way to solve a problem is to help others.

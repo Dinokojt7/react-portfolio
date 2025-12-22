@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <div className="min-h-screen ">{children}</div>
       </body>
     </html>

@@ -150,9 +150,8 @@ export default function Home() {
                           <X size={28} className="text-[#48bfe3]" />
                         ) : (
                           <div className="space-y-1.5">
-                            <div className="w-6 h-0.5 bg-[#48bfe3]"></div>
-                            <div className="w-6 h-0.5 bg-[#48bfe3]"></div>
-                            <div className="w-4 h-0.5 bg-[#48bfe3]"></div>
+                            <div className="w-6 h-0.5 bg-white"></div>
+                            <div className="w-4 h-0.5 bg-white"></div>
                           </div>
                         )}
                       </button>
@@ -160,12 +159,19 @@ export default function Home() {
                       {/* Logo/Name in center on mobile */}
                       <Link
                         href="/"
-                        className="flex items-center space-x-1 hover:opacity-90 transition-opacity"
+                        className="flex items-baseline space-x-1 hover:opacity-90 transition-opacity"
                       >
-                        <span className="font-['Fira_Code',monospace] text-xl font-black text-[#0e9594]">
+                        <motion.span className="font-['Fira_Code',monospace] text-3xl font-black text-[#48bfe3] transition-colors duration-300 cursor-pointer">
                           TiisetsoDinoko
-                        </span>
-                        <span className="text-2xl text-white font-mono">.</span>
+                        </motion.span>
+                        <div className="flex items-end space-x-1">
+                          <motion.span className="text-4xl text-white font-mono">
+                            .
+                          </motion.span>
+                          <motion.span className="text-xl font-black text-purple-600 font-mono">
+                            _
+                          </motion.span>
+                        </div>
                       </Link>
 
                       {/* Spacer for balance */}

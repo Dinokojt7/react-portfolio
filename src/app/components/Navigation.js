@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Code2 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Add this import
+import { usePathname } from "next/navigation";
 
 const Navigation = ({ isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,12 +94,57 @@ const Navigation = ({ isScrolled = false }) => {
   );
 
   return (
-    <div
-      className="relative z-40 pt-4"
+    <motion.nav
+      key="scrolled-nav"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -100, opacity: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      className="top-0 left-0 right-0 z-50  backdrop-blur-lg"
       onMouseLeave={() => setHoveredItem(null)}
     >
-      <div className="mx-12 mb-4">
-        <div className="flex items-start justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-1 pb-2">
+        {/* Mobile menu button on left, logo in center */}
+        <div className="md:hidden flex items-center justify-between">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <X size={28} className="text-[#48bfe3]" />
+            ) : (
+              <div className="space-y-1.5">
+                <div className="w-6 h-0.5 bg-white"></div>
+                <div className="w-4 h-0.5 bg-white"></div>
+              </div>
+            )}
+          </button>
+
+          {/* Logo/Name in center on mobile */}
+          <Link
+            href="/"
+            className="flex items-baseline space-x-1 hover:opacity-90 transition-opacity"
+          >
+            <motion.span className="font-['Fira_Code',monospace] text-3xl font-black text-[#48bfe3] transition-colors duration-300 cursor-pointer">
+              TiisetsoDinoko
+            </motion.span>
+            <div className="flex items-end space-x-1">
+              <motion.span className="text-4xl text-white font-mono">
+                .
+              </motion.span>
+              <motion.span className="text-xl font-black text-purple-600 font-mono">
+                _
+              </motion.span>
+            </div>
+          </Link>
+
+          {/* Empty div for spacing on right side */}
+          <div className="w-10"></div>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-start justify-between">
           {/* Logo/Name Section with link to home */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -131,21 +176,6 @@ const Navigation = ({ isScrolled = false }) => {
               ))}
             </div>
           </motion.div>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X size={28} className="text-white" />
-            ) : (
-              <div className="space-y-1.5">
-                <div className="w-6 h-0.5 bg-white"></div>
-                <div className="w-6 h-0.5 bg-white"></div>
-              </div>
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -179,7 +209,7 @@ const Navigation = ({ isScrolled = false }) => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </motion.nav>
   );
 };
 
