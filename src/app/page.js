@@ -52,9 +52,9 @@ export default function Home() {
         <span
           className={`font-['Fira_Code', monospace] text-lg mt-2.5 font-semibold transition-colors duration-300 lowercase ${
             hoveredItem === null
-              ? "text-[#13adad]"
+              ? "text-[#48bfe3]"
               : hoveredItem === item.name
-                ? "text-[#13adad]"
+                ? "text-[#48bfe3]"
                 : "text-[#0e9594]"
           }`}
         >
@@ -64,9 +64,9 @@ export default function Home() {
           <span
             className={`text-xs font-['Fira_Code',monospace] font-semibold tracking-wider transition-colors duration-300 lowercase ${
               hoveredItem === null
-                ? "text-[#13adad]"
+                ? "text-[#48bfe3]"
                 : hoveredItem === item.name
-                  ? "text-[#13adad]"
+                  ? "text-[#48bfe3]"
                   : "text-[#0e9594]"
             }`}
           >
@@ -75,9 +75,9 @@ export default function Home() {
           <span
             className={`text-lg font-semibold font-['Fira_Code',monospace] tracking-tighter transition-colors duration-300 lowercase ${
               hoveredItem === null
-                ? "text-[#13adad]"
+                ? "text-[#48bfe3]"
                 : hoveredItem === item.name
-                  ? "text-[#13adad]"
+                  ? "text-[#48bfe3]"
                   : "text-[#0e9594]"
             }`}
           >
@@ -147,12 +147,12 @@ export default function Home() {
                         aria-label="Toggle menu"
                       >
                         {isMobileMenuOpen ? (
-                          <X size={28} className="text-[#13adad]" />
+                          <X size={28} className="text-[#48bfe3]" />
                         ) : (
                           <div className="space-y-1.5">
-                            <div className="w-6 h-0.5 bg-[#13adad]"></div>
-                            <div className="w-6 h-0.5 bg-[#13adad]"></div>
-                            <div className="w-4 h-0.5 bg-[#13adad]"></div>
+                            <div className="w-6 h-0.5 bg-[#48bfe3]"></div>
+                            <div className="w-6 h-0.5 bg-[#48bfe3]"></div>
+                            <div className="w-4 h-0.5 bg-[#48bfe3]"></div>
                           </div>
                         )}
                       </button>
@@ -199,7 +199,7 @@ export default function Home() {
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
                                 <div className="flex items-center space-x-3">
-                                  <span className="text-lg font-['Fira_Code'] text-[#13adad]">
+                                  <span className="text-lg font-['Fira_Code'] text-[#48bfe3]">
                                     //
                                   </span>
                                   <div className="flex flex-col items-end font-mono">
