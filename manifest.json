@@ -1,0 +1,24 @@
+{
+  "name": "Tiisetso Dinoko Portfolio",
+  "short_name": "TiisetsoDinoko",
+  "description": "Software Engineer, Front End & Mobile Developer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1b1b1e",
+  "theme_color": "#48bfe3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -6,6 +6,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Tiisetso Dinoko - Frontend & Mobile Developer",
   description: "Software Engineer, Front End & Mobile Developer Portfolio",
+  manifest: "/manifest.json",
+  themeColor: "#48bfe3",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  appleWebApp: {
+    capable: true,
+    title: "Tiisetso Dinoko",
+    statusBarStyle: "black-translucent",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -21,6 +29,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#48bfe3" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="icon"

@@ -41,3 +41,42 @@ body {
   background-color: var(--color);
   transform: rotate(45deg);
 }
+
+/* Prevent text selection on mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow selection for text content */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+/* PWA-specific styles */
+@media (display-mode: standalone) {
+  body {
+    overscroll-behavior: none;
+  }
+
+  /* Hide browser UI elements in standalone mode */
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Handle bottom safe area */
+  .mobile-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

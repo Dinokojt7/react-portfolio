@@ -48,27 +48,28 @@ const Hero = () => {
 
             {/* Sun Body with subtle x movement */}
             <motion.div
-  animate={{ x: [0, 2, 0] }}
-  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-  className="relative mt-16 w-12 h-12 md:w-12 md:h-12"
->
-  {/* Sun Core with sunset gradient */}
-  <div className="absolute inset-0 bg-linear-to-br from-white/60 via-orange-400 to-red-400 rounded-full shadow-xl shadow-yellow-100/40"></div>
-  
-  {/* Inner glow with reddish tint */}
-  <motion.div
-    animate={{ opacity: [0.3, 0.5, 0.3] }}
-    transition={{
-      duration: 2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute inset-0 bg-radial-gradient(circle at 70% 70%, rgba(255, 100, 50, 0.4), transparent 70%) rounded-full"
-  />
-  
-  {/* Sunset highlight at bottom right */}
-  <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-linear-to-tr from-red-500/40 to-orange-300/30 rounded-full blur-sm"></div>
-</motion.div></motion.div>
+              animate={{ x: [0, 2, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="relative mt-16 w-12 h-12 md:w-12 md:h-12"
+            >
+              {/* Sun Core with sunset gradient */}
+              <div className="absolute inset-0 bg-linear-to-r from-yellow-200 via-orange-300 to-red-300 rounded-full shadow-xl shadow-yellow-100/40"></div>
+
+              {/* Inner glow with reddish tint */}
+              <motion.div
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 bg-radial-gradient(circle at 70% 70%, rgba(255, 100, 50, 0.4), transparent 70%) rounded-full"
+              />
+
+              {/* Sunset highlight at bottom right */}
+              <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-linear-to-tr from-red-500/40 to-orange-300/30 rounded-full blur-sm"></div>
+            </motion.div>
+          </motion.div>
 
           {/* Text Content */}
           <div className="relative z-10 md:mt-18">
