@@ -44,11 +44,11 @@ export default function Experience() {
               >
                 {/* Left side: Role @ Client - responsive text */}
                 <div className="flex items-center text-left flex-wrap gap-1 sm:gap-2">
-                  <span className="text-gray-100 text-base sm:text-lg font-semibold truncate">
+                  <span className="text-gray-100 text-base sm:text-base font-semibold truncate">
                     {item.role}
                   </span>
                   <span className="mx-1 sm:mx-2 text-gray-100">@</span>
-                  <span className="text-gray-100 font-semibold text-base sm:text-lg truncate">
+                  <span className="text-gray-100 font-semibold text-base sm:text-base truncate">
                     {item.client}
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export default function Experience() {
                               href={item.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group flex items-center gap-1 text-gray-400 hover:text-[#0e9594] transition-colors"
+                              className="group flex items-center gap-1 text-gray-400 hover:text-[#48bfe3] transition-colors"
                             >
                               <span className="bg-purple-400 rounded">
                                 <svg
