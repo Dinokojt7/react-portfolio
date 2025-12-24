@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Work from "./components/Work";
 import Expertise from "./components/Expertise";
-import Testimonials from "./components/Testimonials"; // Import the new component
+import Testimonials from "./components/Testimonials";
 import Link from "next/link";
 import { X } from "lucide-react";
 
