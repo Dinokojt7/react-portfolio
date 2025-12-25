@@ -170,7 +170,6 @@ export default function ProjectPage() {
                   </div>
                 ) : null}
 
-                {/* Open Project link (always shown, positioned appropriately) */}
                 <div
                   className={
                     project.strategy && project.strategy.trim() !== ""
