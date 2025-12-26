@@ -259,7 +259,7 @@ export default function ProjectPage() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="lg:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-white rounded shadow-2xl z-40 flex items-center justify-center group"
+            className="lg:hidden fixed bottom-6 right-6 w-10 h-10 bg-white rounded shadow-2xl z-40 flex items-center justify-center group"
           >
             <ArrowUp className="w-6 h-6 text-purple-600 group-hover:text-purple-800 transition-colors" />
           </button>
