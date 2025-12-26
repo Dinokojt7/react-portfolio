@@ -101,7 +101,7 @@ export default function Work() {
                   Izinto App
                 </div>
               </div>
-              {/* CTA Button with hover animation - Left aligned on mobile, not full width */}
+              {/* CTA Button */}
               <Link
                 href={`/project/${projects[0]?.slug}`}
                 className="block w-auto mt-4 animate-fadeIn delay-400"

@@ -65,7 +65,7 @@
     "techStack": ["Flutter"],
     "client": "README Prettier",
     "liveUrl": "https://readme-prettier.vercel.app",
-    "images": ["/images/readme-prettier.png", "/images/readme-prettier1.png"],
+    "images": ["/images/readme-prettier.jpg", "/images/readme-prettier1.jpg"],
     "features": []
   }
 ]
