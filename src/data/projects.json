@@ -55,7 +55,7 @@
     "description": "A simple, intuitive markdown editor that allows developers to quickly create, customize, and generate professional README files for their projects with minimal effort.",
     "role": "Web Developer",
     "period": "Nov 2025 - Present",
-    "project-image1": "/images/readme-prettier1.png",
+    "project-image1": "/images/readme-prettier.png",
     "type": "Web Development",
     "location": "Remote",
     "roleDescription": "Built a responsive markdown editor using React/Next.js with Tailwind CSS, implementing real-time preview, customizable templates, and one-click export functionality. This is a personal project to help myself and fellow developers craft quick README files that are visually appealing and easy to update.",
@@ -65,7 +65,7 @@
     "techStack": ["Flutter"],
     "client": "README Prettier",
     "liveUrl": "https://readme-prettier.vercel.app",
-    "images": ["/images/readme-prettier1.png", "/images/readme-prettier.png"],
+    "images": ["/images/readme-prettier.png", "/images/readme-prettier1.png"],
     "features": []
   }
 ]
